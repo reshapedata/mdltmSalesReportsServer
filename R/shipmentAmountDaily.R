@@ -17,16 +17,18 @@ shipmentAmountDailyReportServer <- function(input,output,session,dms_token,erp_t
 
   shiny::observeEvent(input$btn_shipmentAmountDaily_view,{
     FDate=text_date_shipmentAmountDaily_select()
-    print(FDate)
+
 
     data = mdltmSalesReportsPkg::shipmentAmountDaily_view(erp_token =erp_token ,FDate =FDate )
 
     tsui::run_dataTable2(id ='shipmentAmountDaily_resultView' ,data =data )
 
+    # print(FDate)
     FYearMonth =  substr(FDate, start = 1, stop = 7)
+    # print(FYearMonth)
     filename = paste0('每日发货金额报表',FYearMonth,'.xlsx')
-
-    tsui::run_download_xlsx(id = 'dl_shipmentAmountDaily',data = data,filename = filename)
+    # print(filename)
+    tsui::run_download_xlsx(id = 'dl_shipmentAmountDaily_report',data = data,filename = filename)
 
   })
 
