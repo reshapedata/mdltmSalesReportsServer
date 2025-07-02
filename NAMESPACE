@@ -3,3 +3,5 @@
 export(shipmentAmountDailyPriceServer)
 export(shipmentAmountDailyReportServer)
 export(shipmentAmountDailyServer)
+export(shipmentAmountWeeklyReportServer)
+export(shipmentAmountWeeklyServer)
